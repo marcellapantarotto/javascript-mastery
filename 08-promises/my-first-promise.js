@@ -1,13 +1,15 @@
 // Promises
 
+console.log("synchronous 1")
+
 const promise = new Promise((resolve, reject) => {
   setTimeout(() => {
     resolve('data back from the server')
-  }, 3000)
+  }, 8000)
 
   setTimeout(() => {
     reject('failed to get data from the server')
-  }, 2000)
+  }, 10000)
 })
 
 // then for success
@@ -20,3 +22,5 @@ promise.then(response => {
 }).finally(() => {
   console.log("done")
 })
+
+console.log("synchronous 2")
