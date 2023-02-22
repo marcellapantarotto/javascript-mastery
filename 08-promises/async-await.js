@@ -13,6 +13,8 @@ const customers = new Promise((resolve, reject) => {
 
 const addresses = new Promise((resolve, reject) => {
 	return Promise.resolve().then(() => {
+    reject('oops error')
+    
 		let i = 0;
 		while (i < 2_000_000_000) i++;
 		resolve([
@@ -39,11 +41,15 @@ const addresses = new Promise((resolve, reject) => {
 // this way is better to read, and both mean the same
 // a 'async' function allows us to use the 'await' keyword
 const fetchData = async () => {
-  //await blocks action until the promise is returned
-  const c = await customers;
-  const a = await addresses;
-  console.log(c)
-  console.log(a)
-}
+	try {
+		//await blocks action until the promise is returned
+		const c = await customers;
+		const a = await addresses;
+		console.log(c);
+		console.log(a);
+	} catch (error) {
+    console.log(error)
+  }
+};
 
-fetchData()
+fetchData();
