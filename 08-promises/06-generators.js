@@ -1,5 +1,6 @@
 // Generators: functions that allow you to pause
 // cannot use arrow function
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_Generators
 
 const generator = function* () {
 	yield 1;
